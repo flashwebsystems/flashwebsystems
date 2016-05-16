@@ -49,5 +49,5 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
   
-  # Simplified Form Management Support
+  # Simplified Form Management Support (Manejo del frontend mas rapido)
   gem 'simple_form'

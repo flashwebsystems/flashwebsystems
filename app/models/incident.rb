@@ -1,4 +1,5 @@
 class Incident < ActiveRecord::Base
+    
     def self.log(target, messages)
         messages.each do |message|
             Incident.create(target: target, message: message)

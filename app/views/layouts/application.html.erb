@@ -45,12 +45,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Proyectfsw</a>
+        <a class="navbar-brand" href="/pages/index">Flash Web System</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "Inicio", '/pages/index' %></li>
+            <li><%= link_to "Opiniones", '/pages/comentarios' %></li>
+            <li><%= link_to "Registrarse", '/clientes/new' %></li>
+            <li><%= link_to "Iniciar Sesion", '/pages/iniciar_sesion' %></li>
           </ul>
         </div>
       </div>
@@ -63,20 +64,17 @@
           <%= yield %>
         </div>
         <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
+          <div class="well slider-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li class="nav-header"><h3>Opciones</h3></li>
+              <%= render 'layouts/menu' %>
             </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-      </div><!--/row-->
+          </div>
+      </div><!--/span-->
+    </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2016</p>
+      <p>&copy; Flash System Web 2016.</p>
       </footer>
 
     </div> <!-- /container -->

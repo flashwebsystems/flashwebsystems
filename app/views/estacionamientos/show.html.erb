@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id parqueo:</strong>
+  <%= @estacionamiento.ID_Parqueo %>
+</p>
+
+<p>
+  <strong>Nivel:</strong>
+  <%= @estacionamiento.Nivel %>
+</p>
+
+<p>
+  <strong>Distrito:</strong>
+  <%= @estacionamiento.Distrito %>
+</p>
+
+<%= link_to 'Edit', edit_estacionamiento_path(@estacionamiento) %> |
+<%= link_to 'Back', estacionamientos_path %>

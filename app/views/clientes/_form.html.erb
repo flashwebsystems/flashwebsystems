@@ -1,0 +1,12 @@
+<%= simple_form_for @cliente, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= f.input :ID_Parqueo %>
+  <%= f.input :Nombre %>
+  <%= f.input :Apellido %>
+  <%= f.input :Correo %>
+  <%= f.input :Contraseña %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                clientes_path, :class => 'btn btn-default' %>
+<% end %>

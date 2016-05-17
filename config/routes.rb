@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  
+  get '/incidents', controller: :incidents, action: :index, as: :incidents
+  delete 'incidents', controller: :incidents, action: :clear
+
+  get 'pages/busqueda_estacionamiento'
+
+  get 'pages/ofertas'
+
+  get 'pages/preguntas_frecuentes'
+
+  get 'pages/comentarios'
+
+  get 'pages/iniciar_sesion'
+
+  root 'pages#index'
+  
+  get 'pages/index'
+
+  get 'pages/about_us'
+
+  get 'pages/faq'
+
+  get 'pages/tos'
+
+  get 'pages/contact_us'
+
+  resources :estacionamientos
+  resources :clientes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID_Cliente: 
+  ID_Parqueo: 
+  Nombre: MyString
+  Apellido: MyString
+  Correo: MyString
+  Contraseña: MyString
+
+two:
+  ID_Cliente: 
+  ID_Parqueo: 
+  Nombre: MyString
+  Apellido: MyString
+  Correo: MyString
+  Contraseña: MyString

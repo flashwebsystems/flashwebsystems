@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID_Parqueo: 
+  Nivel: 1
+  Distrito: MyString
+
+two:
+  ID_Parqueo: 
+  Nivel: 1
+  Distrito: MyString

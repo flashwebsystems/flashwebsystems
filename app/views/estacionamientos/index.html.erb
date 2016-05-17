@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Estacionamientos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id parqueo</th>
+      <th>Nivel</th>
+      <th>Distrito</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estacionamientos.each do |estacionamiento| %>
+      <tr>
+        <td><%= estacionamiento.ID_Parqueo %></td>
+        <td><%= estacionamiento.Nivel %></td>
+        <td><%= estacionamiento.Distrito %></td>
+        <td><%= link_to 'Show', estacionamiento %></td>
+        <td><%= link_to 'Edit', edit_estacionamiento_path(estacionamiento) %></td>
+        <td><%= link_to 'Destroy', estacionamiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estacionamiento', new_estacionamiento_path %>

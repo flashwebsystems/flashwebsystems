@@ -1,0 +1,29 @@
+<%= form_for(@estacionamiento) do |f| %>
+  <% if @estacionamiento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estacionamiento.errors.count, "error") %> prohibited this estacionamiento from being saved:</h2>
+
+      <ul>
+      <% @estacionamiento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ID_Parqueo %><br>
+    <%= f.text_field :ID_Parqueo %>
+  </div>
+  <div class="field">
+    <%= f.label :Nivel %><br>
+    <%= f.number_field :Nivel %>
+  </div>
+  <div class="field">
+    <%= f.label :Distrito %><br>
+    <%= f.text_field :Distrito %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

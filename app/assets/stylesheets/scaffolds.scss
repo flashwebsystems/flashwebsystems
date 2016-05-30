@@ -1,0 +1,119 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 6px;
+  
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: silver;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+
+/* CAMBIOS PARA FRONTEND INICIO CABECERA */
+
+div.navbar{
+  height: 60px;
+  background-color: white;
+}
+
+div.div-input-buscador{
+  padding: 7px;
+}
+
+input[type=text].input-buscador{
+    width: 300px;
+}
+
+li.menu-cabecera{
+    background-color: black;
+    color: yellow;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+} 
+
+
+#input #gmaps-output-latitude, #input #gmaps-output-longitude {
+  color: green;
+}
+
+
+#gmaps-canvas {
+  height: 400px;
+
+  border: 1px solid #999;
+  -moz-box-shadow:    0px 0px 5px #ccc;
+  -webkit-box-shadow: 0px 0px 5px #ccc;
+  box-shadow:         0px 0px 5px #ccc;
+}
+
+#gmaps-error {
+  color: #cc0000;
+}
+

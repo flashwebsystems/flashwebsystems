@@ -1,0 +1,5 @@
+(function(){
+    if(window.top == window.self) {
+        console.log("Server loaded.");
+    }
+})();

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :sexos
+  resources :logins
+  get 'login/usuario'
+
   get 'pages/como_funciona'
 
   get 'pages/index'

@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524015223) do
+ActiveRecord::Schema.define(version: 20160531014228) do
+
+  create_table "logins", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "lastname",   limit: 255
+    t.string   "correo",     limit: 255
+    t.string   "password",   limit: 255
+    t.string   "sexo",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "sexos", force: :cascade do |t|
+    t.string   "type",       limit: 255
+    t.string   "name",       limit: 255
+    t.integer  "login_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "sexos", ["login_id"], name: "index_sexos_on_login_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.float    "latitude",    limit: 24
@@ -23,4 +43,5 @@ ActiveRecord::Schema.define(version: 20160524015223) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "sexos", "logins"
 end

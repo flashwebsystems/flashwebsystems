@@ -23,12 +23,13 @@
                     <div class="form-group">
                       <div class="row">
                         <div class="col-md-12">
-                          <%= f.label :name %><br>
                           </div>
                           <div class="col-md-6">
+                            <label>Nombres</label>
                             <%= f.text_field :name %>
                           </div>
                           <div class="col-md-6">
+                            <label>Apellidos</label>
                             <%= f.text_field :lastname %>
                           </div>
                         </div>
@@ -44,7 +45,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                   <%= f.label :sexo %><br>
-                                  <%= f.text_field :sexo %>
+                                  <%= f.select :sexo, options_for_select([["Femenino", "F"], ["Masculino", "M"]]) %>
                                 </div>
                             </div>
                         </div>

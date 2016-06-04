@@ -3,13 +3,13 @@
 one:
   name: MyString
   lastname: MyString
-  correo: MyString
+  email: MyString
   password: MyString
-  sexo: MyString
+  sexo: 1.5
 
 two:
   name: MyString
   lastname: MyString
-  correo: MyString
+  email: MyString
   password: MyString
-  sexo: MyString
+  sexo: 1.5

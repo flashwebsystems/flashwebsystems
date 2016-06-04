@@ -52,8 +52,12 @@ gem 'less-rails'
 
 gem 'twitter-bootstrap-rails', '<= 3.2.0'
 
+gem 'bootstrap-sass',       '3.2.0.0'
+
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'gmaps-autocomplete-rails'
+
+gem 'bcrypt',               '3.1.7'

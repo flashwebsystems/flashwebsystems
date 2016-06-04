@@ -35,36 +35,17 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
     
     <%= javascript_include_tag "application" %>
-    
+      
   </head>
   <body>
-    
-    <div class="navbar navbar-default">
-      <header>
-        <div class="container">
-          <a class="navbar-brand" href="#">Flash Web Systems</a>
-          <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <div class="col-lg-6">
-              <div class="input-group">
-                <div class="div-input-buscador">
-                  <input type="text" class="form-control input-buscador" id='pac-input' placeholder="¿D&oacute;nde necesitas estacionamiento?">
-                  </span>
-                </div>
-              </div>
-            </div>
-          
-            <ul class="nav nav-pills" role="tablist">
-                <li role="presentation"><%= link_to "Como Funciona", pages_como_funciona_path %></li>
-                <li role="presentation"><%= link_to "Ingresar", login_usuario_path  %></li>
-                <li role="presentation" class="active"><%= link_to "Publica", login_usuario_path  %></li>
-            </ul>
-            
-          </div>
-        </div>
-      </header>
-      <div id="Body">
-        <%= yield %>
-      </div>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

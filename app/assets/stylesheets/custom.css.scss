@@ -98,12 +98,25 @@ p {
   text-decoration: none;
 }
 
-input[type=text].input-buscador {
-  float: left;
-  margin-right: 10px;
-  letter-spacing: -1px;
+.header_buscador{
   padding-top: 9px;
-  width: 160px;
+  padding-left: 40px;
+}
+
+input[type=text].input-buscador {
+    float: left;
+    width: 350px;
+  text-overflow: ellipsis;
+}
+
+/* Body */
+
+#map{
+  height: 530px;
+  width: 1337px;
+  margin-top: -7px;
+  margin-left: -100px;
+  
 }
 
 /* footer */
@@ -122,8 +135,8 @@ footer {
   small {
     float: left;
   }
-  ul {
-    float: right;
+  ul.menu_opciones {
+    float: left;
     list-style: none;
     li {
       float: left;

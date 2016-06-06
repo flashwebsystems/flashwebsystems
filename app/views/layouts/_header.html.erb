@@ -2,11 +2,11 @@
   <div class="container">
     <%= link_to "Flash Web Systems", '#', id: "logo" %>
     <nav>
-      <ul>
-        <input type="text" class="input-buscador" id='pac-input' placeholder="¿D&oacute;nde necesitas estacionamiento?">
+      <ul class="nav navbar-nav navbar-left header_buscador">
+        <li><input type="text" class="input-buscador" id='pac-input' placeholder="¿D&oacute;nde necesitas estacionamiento?"></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Como Funciona",   '#' %></li>
+        <li><%= link_to "Como Funciona", pages_como_funciona_path %></li>
         <li><%= link_to "Ingresar",   '#' %></li>
         <% if logged_in? %>
           <li class="dropdown">

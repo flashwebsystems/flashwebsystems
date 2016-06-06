@@ -98,6 +98,14 @@ p {
   text-decoration: none;
 }
 
+input[type=text].input-buscador {
+  float: left;
+  margin-right: 10px;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  width: 160px;
+}
+
 /* footer */
 
 footer {

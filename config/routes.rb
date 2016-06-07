@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'pages/terminos'
+
   root 'users#index'
 
   get 'pages/como_funciona'

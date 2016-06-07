@@ -1,4 +1,4 @@
 class PagesController < ApplicationController
-  def como_funciona
+  def terminos
   end
 end

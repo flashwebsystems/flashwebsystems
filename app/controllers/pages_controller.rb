@@ -1,4 +1,4 @@
 class PagesController < ApplicationController
-  def arrendador
+  def politicas_de_cancelacion
   end
 end

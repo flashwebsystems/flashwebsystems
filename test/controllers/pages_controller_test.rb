@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
-  test "should get politicas_de_cancelacion" do
-    get :politicas_de_cancelacion
+  test "should get ayuda" do
+    get :ayuda
     assert_response :success
   end
 

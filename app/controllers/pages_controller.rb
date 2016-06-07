@@ -1,4 +1,4 @@
 class PagesController < ApplicationController
-  def politicas_de_cancelacion
+  def ayuda
   end
 end

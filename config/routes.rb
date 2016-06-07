@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'pages/ayuda'
+
   get 'pages/politicas_de_cancelacion'
 
   get 'pages/arrendador'

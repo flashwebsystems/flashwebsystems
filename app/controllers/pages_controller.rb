@@ -1,4 +1,4 @@
 class PagesController < ApplicationController
-  def terminos
+  def arrendador
   end
 end

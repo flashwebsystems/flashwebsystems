@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'pages/arrendador'
+
+  get 'pages/arrendatario'
+
   get 'pages/terminos'
 
   root 'users#index'

@@ -1,75 +1,150 @@
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGT7n6Ai8R03Sv-Wf0s0WnxwNH70WB67g&signed_in=true&libraries=places&callback=initMap" async defer></script>
-<script type="text/javascript" src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-<script type="text/javascript" src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js"></script> <!-- only if you need custom infoboxes -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 
+<div class="row">
+  	<div class="col-md-6 col-md-offset-3">
+  		
+		<% if @user.errors.any? %>
+	      <div div id="error_explanation">
+	        <div class="alert alert-danger">
+	          The form contains <%= pluralize(@user.errors.count, "error") %>.
+	        </div>
+	        <ul>
+	        <% @user.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
+	    
+	    <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
 
-<div class="field">
-  <input type="text" class="input-buscador-lugar" id='pac-input-buscador-lugar' placeholder="¿D&oacute;nde necesitas estacionamiento?"><br>
-  <div class"google_maps_agregar" id='map'></div>
+			<%= f.label "Direccion exacta: " %><br>
+	      	<%= f.text_field :address, class: 'input-buscador-lugar', id: 'pac-input-buscador-lugar', placeholder: 'calle, numero y ciudad' %>
+	  		<!--<input type="text" class="input-buscador-lugar" id='pac-input-buscador-lugar' placeholder="¿D&oacute;nde necesitas estacionamiento?"><br>-->
+	  		<div id='map-agregar'></div><br>
+	  		
+      		<%= f.label "Precio Diario" %><br>
+      		<%= f.text_field :price_day, class: 'form-control', placeholder: 'Precio Diario' %>
+      		
+      		<%= f.label "Precio Mensual" %><br>
+      		<%= f.text_field :price_month, class: 'form-control', placeholder: 'Precio Mensual' %>
+	  		
+      		<%= f.label "Disponibilidad" %><br>
+      		<%= f.select :No_Disponibilidad,
+      				options_for_select([["Lunes a Viernes", "Lunes a Viernes"],
+      									["Fin de Semana", "Fin de Semana"],
+      									["Lunes a Domingo", "Lunes a Domingo"],
+      									["Otro", "Otro"]
+      									])
+      		%>
+      		
+      		<%= f.select :No_Horario,
+      				options_for_select([["Oficina", "Lunes a Viernes"],
+      									["24 horas", "Fin de Semana"],
+      									["Nocturno", "Lunes a Domingo"],
+      									["Otro", "Otro"]
+      									])
+      		%>
+      		
+			<%= f.select :No_TamannoAuto,
+      				options_for_select([["Carro", "Carro"],
+      									["Camioneta", "Camioneta"],
+      									["Camion", "Camion"],
+      									["Otro", "Otro"]
+      									])
+      		%>
+      		
+      		<%= f.select :No_Nivel,
+      				options_for_select([["Superior", "Superior"],
+      									["Primer Piso", "Primer Piso"],
+      									["Subterraneo", "Subterraneo"],
+      									["Otro", "Otro"]
+      									])
+      		%>
+      		
+	  		<%= f.label "Telefono" %><br>
+	    	<%= f.text_field :telefono, class: 'form-control', placeholder: 'Ejemplo: 999888777' %>
+  
+	    	<%= simple_form_for @getuser, :html => { :class => 'form-horizontal' } do |t| %>
+ 				<%= t.text_field :email, class: 'form-control', placeholder: 'Ejemplo: 999888777' %>
+    		<% end %>
+  
+      		<%= f.submit "Continuar", class: "btn btn-primary" %>
+      		
+    	<% end %>
+    	
+	</div>
 </div>
-
 
 <script>
 
 function initMap() {
 
-	  	 var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -33.8688, lng: 151.2195},
-    zoom: 13
-  });
-  var input = document.getElementById('pac-input-buscador-lugar'));
+	  	var map = new google.maps.Map(document.getElementById('map-agregar'), {
+	    	center: {lat: -12.046374, lng: -77.042793},
+	    	zoom: 13
+	  	});
 
-  var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.bindTo('bounds', map);
+  		var input = (document.getElementById('pac-input-buscador-lugar'));
+  		var types = document.getElementById('type-selector');
 
-  var infowindow = new google.maps.InfoWindow();
-  var marker = new google.maps.Marker({
-    map: map,
-    anchorPoint: new google.maps.Point(0, -29)
-  });
+  		var autocomplete = new google.maps.places.Autocomplete(input);
+  		autocomplete.bindTo('bounds', map);
 
-  autocomplete.addListener('place_changed', function() {
-    infowindow.close();
-    marker.setVisible(false);
-    var place = autocomplete.getPlace();
-    if (!place.geometry) {
-      window.alert("Autocomplete's returned place contains no geometry");
-      return;
-    }
+  		var infowindow = new google.maps.InfoWindow();
 
-    // If the place has a geometry, then present it on a map.
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport);
-    } else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);  // Why 17? Because it looks good.
-    }
-    marker.setIcon(/** @type {google.maps.Icon} */({
-      url: place.icon,
-      size: new google.maps.Size(71, 71),
-      origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(17, 34),
-      scaledSize: new google.maps.Size(35, 35)
-    }));
-    marker.setPosition(place.geometry.location);
-    marker.setVisible(true);
+  		var marker = new google.maps.Marker({
+    		map: map,
+    		anchorPoint: new google.maps.Point(0, -29)
+  		});
 
-    var address = '';
-    if (place.address_components) {
-      address = [
-        (place.address_components[0] && place.address_components[0].short_name || ''),
-        (place.address_components[1] && place.address_components[1].short_name || ''),
-        (place.address_components[2] && place.address_components[2].short_name || '')
-      ].join(' ');
-    }
+  		autocomplete.addListener('place_changed', function() {
+	    	infowindow.close();
+	    	marker.setVisible(false);
 
-    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-    infowindow.open(map, marker);
-  });
+	    	var place = autocomplete.getPlace();
+	    	if (!place.geometry) {
+		      	window.alert("Autocomplete's returned place contains no geometry");
+		      	return;
+	    	}
+
+		    // If the place has a geometry, then present it on a map.
+		    if (place.geometry.viewport) {
+		      map.fitBounds(place.geometry.viewport);
+		    } else {
+		      map.setCenter(place.geometry.location);
+		      map.setZoom(17);  // Why 17? Because it looks good.
+		    }
+
+	    	marker.setIcon(/** @type {google.maps.Icon} */({
+		      	url: place.icon,
+		      	size: new google.maps.Size(71, 71),
+		      	origin: new google.maps.Point(0, 0),
+		      	anchor: new google.maps.Point(17, 34),
+		      	scaledSize: new google.maps.Size(35, 35)
+	    	}));
+
+	   		marker.setPosition(place.geometry.location);
+	    	marker.setVisible(true);
+
+	    	var address = '';
+
+	    	if (place.address_components) {
+		      		address = [
+			        	(place.address_components[0] && place.address_components[0].short_name || ''),
+			        	(place.address_components[1] && place.address_components[1].short_name || ''),
+			        	(place.address_components[2] && place.address_components[2].short_name || '')
+			      	].join(' ');
+	    	}
+
+	    	infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+	    	infowindow.open(map, marker);
+  		});
+  		
 
     
 	}
 
 </script>
+

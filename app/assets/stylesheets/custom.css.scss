@@ -103,22 +103,9 @@ p {
   padding-left: 40px;
 }
 
-.google_maps_agregar{
-  height: 100px;
-  width: 100px;
-  margin-top: -7px;
-  margin-left: -100px;
-}
 
 input[type=text].input-buscador {
     float: left;
-    width: 350px;
-  text-overflow: ellipsis;
-}
-
-input[type=text].input-buscador-lugar{
-    float: left;
-    padding-top: 10px;
     width: 350px;
   text-overflow: ellipsis;
 }
@@ -132,6 +119,27 @@ input[type=text].input-buscador-lugar{
   margin-left: -100px;
   
 }
+
+input[type=text].input-buscador-lugar{
+    float: left;
+    padding-top: 10px;
+    width: 350px;
+  text-overflow: ellipsis;
+}
+
+#map-agregar{
+  height: 300px;
+  width: 300px;
+}
+/*
+.google_maps_agregar{
+  height: 100px;
+  width: 100px;
+  margin-top: -7px;
+  margin-left: -100px;
+}*/
+
+/* FIN BODY */
 
 /* footer */
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604180420) do
+ActiveRecord::Schema.define(version: 20160611010344) do
 
   create_table "logins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -25,13 +25,24 @@ ActiveRecord::Schema.define(version: 20160604180420) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.float    "latitude",    limit: 24
-    t.float    "longitude",   limit: 24
-    t.string   "address",     limit: 255
-    t.text     "description", limit: 65535
-    t.string   "title",       limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.float    "latitude",          limit: 24
+    t.float    "longitude",         limit: 24
+    t.string   "address",           limit: 255
+    t.text     "description",       limit: 65535
+    t.string   "title",             limit: 255
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.decimal  "price_day",                       precision: 9,  scale: 2
+    t.decimal  "price_month",                     precision: 9,  scale: 2
+    t.string   "No_Disponibilidad", limit: 255
+    t.string   "No_Horario",        limit: 255
+    t.string   "No_TamannoAuto",    limit: 255
+    t.string   "No_Nivel",          limit: 255
+    t.decimal  "telefono",                        precision: 10
+    t.integer  "login_id",          limit: 4
   end
 
+  add_index "users", ["login_id"], name: "index_users_on_login_id", using: :btree
+
+  add_foreign_key "users", "logins"
 end

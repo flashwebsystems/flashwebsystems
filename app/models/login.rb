@@ -1,4 +1,6 @@
 class Login < ActiveRecord::Base
+  has_many :users
+  
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }

@@ -1,1 +1,1 @@
-json.extract! @user, :id, :latitude, :longitude, :address, :description, :title, :created_at, :updated_at
+json.extract! @user, :id, :latitude, :longitude, :address, :description, :title, :created_at, :updated_at, :price_day, :price_month, :No_Disponibilidad, :No_Horario, :No_TamannoAuto, :No_Nivel, :telefono, :login_id

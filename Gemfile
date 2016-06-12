@@ -61,3 +61,5 @@ gem 'jquery-ui-rails'
 gem 'gmaps-autocomplete-rails'
 
 gem 'bcrypt',               '3.1.7'
+
+gem 'simple_form'

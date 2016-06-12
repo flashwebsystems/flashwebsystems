@@ -6,10 +6,12 @@ one:
   email: MyString
   password: MyString
   sexo: 1.5
-
+  login_id: 
+    
 two:
   name: MyString
   lastname: MyString
   email: MyString
   password: MyString
   sexo: 1.5
+  login_id: 

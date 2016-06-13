@@ -98,6 +98,10 @@ p {
   text-decoration: none;
 }
 
+.input-buscador-text{
+  z-index: 1;
+}
+
 .header_buscador{
   padding-top: 9px;
   padding-left: 40px;
@@ -107,7 +111,7 @@ p {
 input[type=text].input-buscador {
     float: left;
     width: 350px;
-  text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 
 /* Body */

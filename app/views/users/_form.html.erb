@@ -66,10 +66,7 @@
 	  		<%= f.label "Telefono" %><br>
 	    	<%= f.text_field :telefono, class: 'form-control', placeholder: 'Ejemplo: 999888777' %>
   
-	    	<%= simple_form_for @getuser, :html => { :class => 'form-horizontal' } do |t| %>
- 				<%= t.text_field :email, class: 'form-control', placeholder: 'Ejemplo: 999888777' %>
-    		<% end %>
-  
+	    <%= f.hidden_field :login_id, :value => session[:user_id] %>
       		<%= f.submit "Continuar", class: "btn btn-primary" %>
       		
     	<% end %>

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @getuser = Login.find_by(id: session[:user_id])
+    #@getuser = Login.find_by(id: session[:user_id])
   end
 
   # GET /users/1/edit
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -80,7 +81,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:latitude, :longitude, :address, :description, :title, :price_day, :price_month, :No_Disponibilidad, :No_Horario, :No_TamannoAuto, :No_Nivel, :telefono, :login_id)
+      params.require(:user).permit(:latitude, :longitude, :address, :description, :title, :price_day, :price_month, :No_Disponibilidad, :No_Horario, :No_TamannoAuto, :No_Nivel, :telefono, session[:user_id])
     end
 
 end

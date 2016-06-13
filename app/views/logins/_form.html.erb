@@ -1,6 +1,6 @@
 <div class="alert alert-warning text-center">Para poder publicar un estacionamiento necesitas ingresar con una cuenta Flash Web Systems</div>
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<h3 align="center">Estás creando una cuenta, solo tardarás unos segundos</h3>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <% if @login.errors.any? %>
@@ -17,22 +17,24 @@
     <% end %>
     <%= form_for(@login) do |f| %>
     
-      <%= f.label :Nombre %><br>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label 'Nombre(s): ' %><br>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Ingresar Nombres' %>
 
-      <%= f.label :Apellidos %><br>
-      <%= f.text_field :lastname, class: 'form-control' %>
+      <%= f.label 'Apellidos: ' %><br>
+      <%= f.text_field :lastname, class: 'form-control', placeholder: 'Ingresar Apellidos' %>
       
-      <%= f.label :email %><br>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label 'Email: ' %><br>
+      <%= f.email_field :email, class: 'form-control', placeholder: 'Ingresar correo electronico' %>
       
-      <%= f.label :Contraseña %><br>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label 'Contraseña: ' %><br>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Ingresar contraseña' %>
       
-      <%= f.label :sexo %><br>
+      <%= f.label 'Sexo: ' %><br>
       <%= f.select :sexo, options_for_select([["Masculino", "M"], ["Femenino", "M"]]) %>
       
       <%= f.submit "Crear Cuenta", class: "btn btn-primary" %>
+      
+      <p align="center">¿ Ya tienes una cuenta ? <%= link_to "Ingresar", login_path %></p>
     <% end %>
   </div>
 </div>

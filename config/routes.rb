@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   
+  resources :estacionamientos
+  resources :estacionamientos
+  resources :estacionamientos
+  resources :estacionamientos
+  resources :estacionamientos
+  resources :estacionamientos
+  resources :estacionamientos
   get 'pages/ayuda'
 
   get 'pages/politicas_de_cancelacion'

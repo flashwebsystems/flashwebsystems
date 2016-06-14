@@ -27,12 +27,9 @@
 	  		<!--<input type="text" class="input-buscador-lugar" id='pac-input-buscador-lugar' placeholder="¿D&oacute;nde necesitas estacionamiento?"><br>-->
 	  		<div id='map-agregar'></div><br>
 	  		
-      		<%= f.label "Precio Diario" %><br>
+      		<%= f.label "Precio" %><br>
       		<%= f.text_field :price_day, class: 'form-control', placeholder: 'Precio Diario' %>
       		
-      		<%= f.label "Precio Mensual" %><br>
-      		<%= f.text_field :price_month, class: 'form-control', placeholder: 'Precio Mensual' %>
-	  		
       		<%= f.label "Disponibilidad" %><br>
       		<%= f.select :No_Disponibilidad,
       				options_for_select([["Lunes a Viernes", "Lunes a Viernes"],

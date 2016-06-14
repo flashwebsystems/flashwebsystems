@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fe_inicio: 2016-06-14
+  fe_final: 2016-06-14
+  monto_pagar: 9.99
+  mensaje: MyString
+  user_id: 
+
+two:
+  fe_inicio: 2016-06-14
+  fe_final: 2016-06-14
+  monto_pagar: 9.99
+  mensaje: MyString
+  user_id: 

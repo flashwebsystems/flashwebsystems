@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fe inicio:</strong>
+  <%= @estacionamiento.fe_inicio %>
+</p>
+
+<p>
+  <strong>Fe final:</strong>
+  <%= @estacionamiento.fe_final %>
+</p>
+
+<p>
+  <strong>Monto pagar:</strong>
+  <%= @estacionamiento.monto_pagar %>
+</p>
+
+<p>
+  <strong>Mensaje:</strong>
+  <%= @estacionamiento.mensaje %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @estacionamiento.user %>
+</p>
+
+<%= link_to 'Edit', edit_estacionamiento_path(@estacionamiento) %> |
+<%= link_to 'Back', estacionamientos_path %>

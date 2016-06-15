@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614033915) do
+ActiveRecord::Schema.define(version: 20160614230657) do
 
   create_table "estacionamientos", force: :cascade do |t|
     t.date     "fe_inicio"
     t.date     "fe_final"
     t.decimal  "monto_pagar",             precision: 9, scale: 2
     t.string   "mensaje",     limit: 255
+    t.string   "status",      limit: 255
     t.integer  "user_id",     limit: 4
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false

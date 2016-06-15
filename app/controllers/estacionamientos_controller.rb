@@ -69,6 +69,6 @@ class EstacionamientosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def estacionamiento_params
-      params.require(:estacionamiento).permit(:fe_inicio, :fe_final, :monto_pagar, :mensaje, :user_id)
+      params.require(:estacionamiento).permit(:fe_inicio, :fe_final, :monto_pagar, :mensaje, :status, :user_id)
     end
 end

@@ -5,6 +5,7 @@ one:
   fe_final: 2016-06-14
   monto_pagar: 9.99
   mensaje: MyString
+  status: MyString
   user_id: 
 
 two:
@@ -12,4 +13,5 @@ two:
   fe_final: 2016-06-14
   monto_pagar: 9.99
   mensaje: MyString
+  status: MyString
   user_id: 

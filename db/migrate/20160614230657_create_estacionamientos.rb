@@ -5,6 +5,7 @@ class CreateEstacionamientos < ActiveRecord::Migration
       t.date :fe_final
       t.decimal :monto_pagar, precision: 9, scale: 2
       t.string :mensaje
+      t.string :status
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false

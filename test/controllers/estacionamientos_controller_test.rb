@@ -18,7 +18,7 @@ class EstacionamientosControllerTest < ActionController::TestCase
 
   test "should create estacionamiento" do
     assert_difference('Estacionamiento.count') do
-      post :create, estacionamiento: { fe_final: @estacionamiento.fe_final, fe_inicio: @estacionamiento.fe_inicio, mensaje: @estacionamiento.mensaje, monto_pagar: @estacionamiento.monto_pagar, user_id: @estacionamiento.user_id }
+      post :create, estacionamiento: { fe_final: @estacionamiento.fe_final, fe_inicio: @estacionamiento.fe_inicio, mensaje: @estacionamiento.mensaje, monto_pagar: @estacionamiento.monto_pagar, status: @estacionamiento.status, user_id: @estacionamiento.user_id }
     end
 
     assert_redirected_to estacionamiento_path(assigns(:estacionamiento))
@@ -35,7 +35,7 @@ class EstacionamientosControllerTest < ActionController::TestCase
   end
 
   test "should update estacionamiento" do
-    patch :update, id: @estacionamiento, estacionamiento: { fe_final: @estacionamiento.fe_final, fe_inicio: @estacionamiento.fe_inicio, mensaje: @estacionamiento.mensaje, monto_pagar: @estacionamiento.monto_pagar, user_id: @estacionamiento.user_id }
+    patch :update, id: @estacionamiento, estacionamiento: { fe_final: @estacionamiento.fe_final, fe_inicio: @estacionamiento.fe_inicio, mensaje: @estacionamiento.mensaje, monto_pagar: @estacionamiento.monto_pagar, status: @estacionamiento.status, user_id: @estacionamiento.user_id }
     assert_redirected_to estacionamiento_path(assigns(:estacionamiento))
   end
 

@@ -7,7 +7,6 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Como Funciona", pages_como_funciona_path %></li>
-        <li><%= link_to "Ingresar",   '#' %></li>
         <% if logged_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -22,8 +21,10 @@
               </li>
             </ul>
           </li>
+          <li><%= link_to "Publica", new_user_path %></li>
         <% else %>
-          <li><%= link_to "Publica", login_path %></li>
+          <li><%= link_to "Ingresar", login_path %></li>
+          <li><%= link_to "Publica", new_login_path %></li>
         <% end %>
       </ul>
     </nav>

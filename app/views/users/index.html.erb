@@ -1,4 +1,4 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGT7n6Ai8R03Sv-Wf0s0WnxwNH70WB67g&signed_in=true&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGT7n6Ai8R03Sv-Wf0s0WnxwNH70WB67g&signed_in=true&libraries=places&callback=IndexinitMap" async defer></script>
 <script type="text/javascript" src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script type="text/javascript" src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js"></script> <!-- only if you need custom infoboxes -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -20,7 +20,7 @@ $('#jsondata').html(JSON.stringify(updatedJson));
 obj   = JSON.stringify(updatedJson);
 data  = JSON.parse(obj);
 
-function initMap() {
+function IndexinitMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -198,16 +198,17 @@ function initMap() {
         <div class="container">
             <h3>Tu dinero está seguro</h3>
             <p>Tus pagos son recepcionados por nosotros y son transferidos al dueño del estacionamiento sólo si el arriendo marcha bien.</p>
-            <p>
-                <li><%= link_to "Conoce nuestra garantía", pages_arrendatario_path %></li>
-            </p>
         </div>
     </section>
     <section class="metrics">
         <div class="container">
             <h2 style="font-weight: bold;color: #222">+1.000</h2>
             <h3>Estacionamientos publicados desde 2016</h3>
-            <a class="btn btn-primary btn-publish btn-lg" href="https://www.joldit.com/publish">Publica tu Estacionamiento</a>
+            <% if logged_in? %>
+                <%= link_to "Publica tu Estacionamiento", new_user_path, class: 'btn btn-primary btn-publish btn-lg' %>
+            <% else %>
+                <%= link_to "Publica tu Estacionamiento", new_login_path, class: 'btn btn-primary btn-publish btn-lg' %>
+            <% end %>
         </div>
     </section>
 </main>

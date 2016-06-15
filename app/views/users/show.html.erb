@@ -1,29 +1,84 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-warning text-center">Tu estacionamiento ya fue publicado. Ahora <a href="https://www.joldit.com/spaces/1939/edit/description/" class="">mejora su descripción</a>.</div>
+        
+        <section class="space">
+            <div class="space-status hidden-xs">
+                <div>
+                    <span class="state-available">
+                        Pendiente
+                    </span>
+                    <span class="date">
+                        Actualizado 1 segundo atrás
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="panel panel-space">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"><%= @user.title %></h2>
+                    </div>
+                    <div class="panel-content">
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @user.latitude %>
-</p>
+                        <div class="space-content-container">
+                            <ul class="nav nav-tabs nav-space-description">
+                                <li class="active">
+                                    <a href="https://www.joldit.com/spaces/1939/">Descripción</a>
+                                </li>
+                            </ul>
+                            <div class="space-description">
+                                <dl class="dl-horizontal">
+                                    <dt>Direccion: </dt>
+                                    <dd><%= @user.address %></dd>
+                                    <dt>Disponibilidad: </dt>
+                                    <dd><%= @user.No_Disponibilidad %></dd>
+                                    <dt>Tamaño máximo: </dt>
+                                    <dd><%= @user.No_TamannoAuto %></dd>
+                                    <dt>Horario: </dt>
+                                    <dd><%= @user.No_Horario %></dd>
+                                    <dt>Nivel: </dt>
+                                    <dd><%= @user.No_Nivel %></dd>
+                                </dl>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <aside>
+                    <div class="panel panel-new-reservation">
+                        <div class="space-price-container">
+                            <div class="space-price-title col-lg-6">
+                                
+                                S/ <span><%= @user.price_day %></span>
+                                
+                            </div>
+                            <div class="space-price-selector col-lg-6" style="text-align: right;">
+                                <div class="btn-group" data-toggle="buttons">
+                                    
+                                    <label class="btn btn-default btn-sm">
+                                        <input type="radio" name="daily"> Diario
+                                    </label>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </aside>
+            </div>
+            
+                    <div class="panel panel-space">
+                        <div class="space-user-verifications">
+                            <%= link_to "Publicar Estacionamiento", new_user_path, class: 'btn btn-success btn-lg' %>
+                            <br/>
+                            <br/>
+                        </div>
+                        <div class="space-user-verifications">
+                            <%= link_to "Buscar Estacionamiento", users_path, class: 'btn btn-success btn-lg' %>
+                            <br>
+                        </div>
+                    </div>
+        </section>
+    </div>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @user.longitude %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @user.title %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

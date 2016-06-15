@@ -1,5 +1,60 @@
 <p id="notice"><%= notice %></p>
 
+    <div class="alert alert-success text-center">
+        Hemos enviado tu solicitud de arriendo al dueño del estacionamiento, quien tendrá hasta las 23:59 del día anterior al día de inicio para Aceptar o Rechazar tu solicitud. Si no responde en ese tiempo la solicitud perderá validez y deberás realizar una nueva.
+    </div>
+    <section class="reservation-detail">
+        
+        <h3>Detalle de la solicitud</h3>
+        <table class="table table-bordered table-reservation">
+            <tbody><tr>
+                <th width="25%">
+                    <i class="fa fa-calendar"></i>
+                    Desde
+                </th>
+                <th width="25%">
+                    <i class="fa fa-calendar"></i>
+                    Hasta
+                </th>
+                <th width="20%">
+                  <i class="fa"><b>S/</i>
+                  Monto Pago Diario
+                </th>
+                <th width="20%">
+                  <i class="fa"></i>
+                  Estado
+                </th>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle"><%= @estacionamiento.fe_inicio %></td>
+                <td style="vertical-align: middle"><%= @estacionamiento.fe_final %></td>
+                <td style="vertical-align: middle"><%= @estacionamiento.monto_pagar %></td>
+                <td style="vertical-align: middle"><%= @estacionamiento.status %></td>
+            </tr>
+            <tr>
+                <th colspan="4">
+                    <i class="fa fa-envelope"></i>
+                    Mensaje del solicitante
+                </th>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <em><%= @estacionamiento.mensaje %></em>
+                </td>
+            </tr>
+        </tbody></table>
+    </section>
+
+    <div class="text-center">
+        <h3>No te detengas ahora y haz solicitudes a otros arrendatarios</h3>
+        <p>Hacer solicitudes a varios arrendatarios mejora considerablemente tus posibilidades de concretar un arriendo.</p>
+        <p>
+            <%= link_to 'Seguir Buscando', users_path, class: 'btn btn-success btn-lg' %>
+        </p>
+    </div>
+    
+
+<!--
 <p>
   <strong>Fe inicio:</strong>
   <%= @estacionamiento.fe_inicio %>
@@ -32,3 +87,4 @@
 
 <%= link_to 'Edit', edit_estacionamiento_path(@estacionamiento) %> |
 <%= link_to 'Back', estacionamientos_path %>
+-->

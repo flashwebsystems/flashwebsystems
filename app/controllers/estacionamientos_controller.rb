@@ -10,11 +10,14 @@ class EstacionamientosController < ApplicationController
   # GET /estacionamientos/1
   # GET /estacionamientos/1.json
   def show
+    
   end
 
   # GET /estacionamientos/new
   def new
     @estacionamiento = Estacionamiento.new
+    @getuser = User.find_by(id: session[:user_id])
+    @getlogin = Login.find_by(id: session[:user_id])
   end
 
   # GET /estacionamientos/1/edit
@@ -28,7 +31,7 @@ class EstacionamientosController < ApplicationController
 
     respond_to do |format|
       if @estacionamiento.save
-        format.html { redirect_to @estacionamiento, notice: 'Estacionamiento was successfully created.' }
+        format.html { redirect_to @estacionamiento }
         format.json { render :show, status: :created, location: @estacionamiento }
       else
         format.html { render :new }

@@ -1,16 +1,47 @@
-<%= simple_form_for(@estacionamiento) do |f| %>
-  <%= f.error_notification %>
+<div class="row">
+  	<div class="col-md-6 col-md-offset-3">
+  		
+  <%= simple_form_for @estacionamiento, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.error_notification %>
+  
+    <div class="form-inputs">
+      <%= f.input :fe_inicio %>
+      <%= f.input :fe_final %>
+      
+      <%= f.fields_for @getuser, :html => { :class => 'form-horizontal' } do |user_estacionamiento| %>
+        <%= f.label 'Monto Pago Diario: ' %><br>
+        <%= text_field_tag 'estacionamiento[monto_pagar]', @getuser.price_day  %>
+      <% end %>
+      
+      <i class="fa fa-envelope"></i>
+      <%= f.label 'Mensaje: ' %><br>
+      <%= f.input :mensaje, label: false, as: :text, :input_html => { :cols => 20, :rows => 5 } %>
+      <p class="help-block">Aprovecha este campo para contarle al dueño sobre ti, por qué necesitas el estacionamiento y para describir tu automóvil.</p>
+      <%= f.hidden_field :status, :value => 'Pendiente' %>
+      <%= f.hidden_field :user_id, :value => session[:user_id] %>
+      
+      <%= f.fields_for @getlogin, :html => { :class => 'form-horizontal' } do |login_estacionamiento| %>
+        <%= f.label 'Email: ' %><br>
+        <%= text_field_tag 'login[email]', @getlogin.email  %>
+      <% end %>
+      
+      <%= f.fields_for @getuser, :html => { :class => 'form-horizontal' } do |user_estacionamiento| %>
+        <%= f.label 'Telefono: ' %><br>
+        <%= text_field_tag 'user[telefono]', @getuser.telefono  %>
+      <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :fe_inicio %>
-    <%= f.input :fe_final %>
-    <%= f.input :monto_pagar %>
-    <%= f.input :mensaje %>
-    <%= f.input :status %>
-    <%= f.association :user %>
-  </div>
+    </div>
+  
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+	</div>
+</div>
+
+
+
+  
+
+
